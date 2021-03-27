@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>21 Savage Fans</title>
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="stylesheet" href="font-awesome.min.css">
+  <!-- <link rel="stylesheet" href="reset.css"> -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <section id="main" class="readable-width main">
+    <h1>ToDoList</h1>
+    <section class="stats flex-container flex-xy-center">
+      <h2>Current Tasks: <span id="task-count">0</span></h2>
+      <h2>Completed Tasks: <span id="complete-count">0</span></h2>
+
+    </section>
+    <section class="buttons flex-container flex-xy-center" >
+      <button id="reset-button" class="main-action reset" type="button" name="button">Reset</button>
+      <button id="clear-complete-button" class="main-action clear-completed" type="button" name="button">Clear Completed</button>
+    </section>
+    <ul id="list-items" class="list-items">
+    <%  for(let i = 0 ; i < listItems.length && i < 100 ; i++) {%>
+      <li id="<%=listItems[i].id%>"class="task flex-container task-item flex-xy-center
+      <% if(listItems[i].isComplete) {%>
+        complete
+      <% } %>
+      ">
+        <input type="text" class="task-box
+        <% if(listItems[i].isComplete) {%>
+          strikethrough
+        <% } %>
+        " placeholder="What should I do?" size="30" max-length="30" value="<%= listItems[i].taskContent %>" readonly='true'>
+        <button class="hover edit main-action">EDIT</button>
+      </li>
+    <% } %>
+    </ul>
+    <section class="add-section">
+      <button id="add-task" class="main-action add-task" type="button" name="button">+</button>
+    </section>
+    <!-- <button class="info-button">...</button> -->
+  </section>
+
+
+  <script src="main.js"></script>
+
+</body>
+</html>
